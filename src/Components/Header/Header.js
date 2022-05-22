@@ -16,11 +16,11 @@ const Header = () => {
 
   return (
     <div className="">
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Navbar collapseOnSelect expand="lg" bg="danger" variant="dark">
         <Container>
           <NavLink className={"footer-style"} to="/">
             <h6 className="h1 text-white fw-bold ">
-             BikeHunter
+             Bike<span className="text-warning">101</span>
             </h6>
           </NavLink>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />

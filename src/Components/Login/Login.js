@@ -1,6 +1,7 @@
 import "./Login.css";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import login from '../../img/login.png'
 import {
   useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
@@ -70,7 +71,7 @@ const Login = () => {
     return (
       <div className="row container mx-auto">
         <div className="col-lg-8">
-          <img className="img-fluid mt-2" src='' alt="" />
+          <img className="img-fluid mt-2" src={login} alt="" />
         </div>
         <div className="col-lg-4 my-5 px-5 py-3 me-0 form-container">
           <div className="">
