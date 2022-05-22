@@ -1,11 +1,15 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import AddItems from './Components/AddItems/AddItems';
 import Blog from './Components/Blog/Blog';
 import Contact from './Components/Contact/Contact';
+import Details from './Components/Details/Details';
 import Header from './Components/Header/Header';
 import Home from './Components/Home/Home';
 import Inventory from './Components/Inventory/Inventory';
 import Login from './Components/Login/Login';
+import ManageItems from './Components/ManageItems/ManageItems';
+import MyItems from './Components/MyItems/MyItems';
 import NotFound from './Components/NotFound/NotFound';
 import RequireAuth from './Components/RequireAuth';
 import SignUp from './Components/SignUp/SignUp';
@@ -22,6 +26,26 @@ function App() {
         <Route path='/inventory' element={<RequireAuth>
           <Inventory></Inventory>
         </RequireAuth>}></Route>
+        <Route path="/details/:id" element={
+          <RequireAuth>
+            <Details></Details>
+          </RequireAuth>
+        }></Route>
+        <Route path="/manageItems" element={
+          <RequireAuth>
+            <ManageItems></ManageItems>
+          </RequireAuth>
+        }></Route>
+        <Route path="/addItems" element={
+          <RequireAuth>
+            <AddItems></AddItems>
+          </RequireAuth>
+        }></Route>
+        <Route path="/myItems" element={
+          <RequireAuth>
+            <MyItems></MyItems>
+          </RequireAuth>
+        }></Route>
         <Route path='/signUp' element={<SignUp></SignUp>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>

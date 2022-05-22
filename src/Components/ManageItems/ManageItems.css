@@ -1,0 +1,17 @@
+.btn-dlt{
+    border: none;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    box-shadow: -1px 2px 11px 0px rgba(0,0,0,0.30);
+}
+.btn-dlt:active{
+    box-shadow: none;
+}
+.spinner_{
+    min-height: 500px;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
