@@ -1,0 +1,25 @@
+.link{
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+
+}
+.link-active{
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 20px;
+    color: rgb(59, 178, 237);
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+}
+.link-active:hover{
+    color: rgb(59, 178, 237);
+}
+.link:hover{
+    color: rgb(59, 178, 237);
+    
+      
+}
