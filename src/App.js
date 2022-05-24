@@ -1,8 +1,10 @@
 import { Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import './App.css';
 import AddItems from './Components/AddItems/AddItems';
 import Blog from './Components/Blog/Blog';
 import Contact from './Components/Contact/Contact';
+import Dashboard from './Components/Dashboard/Dashboard';
 import Details from './Components/Details/Details';
 import Header from './Components/Header/Header';
 import Home from './Components/Home/Home';
@@ -36,6 +38,11 @@ function App() {
             <ManageItems></ManageItems>
           </RequireAuth>
         }></Route>
+        <Route path="/dashboard" element={
+          <RequireAuth>
+            <Dashboard></Dashboard>
+          </RequireAuth>
+        }></Route>
         <Route path="/addItems" element={
           <RequireAuth>
             <AddItems></AddItems>
@@ -50,6 +57,7 @@ function App() {
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
+      <ToastContainer />
     </div>
   );
 }

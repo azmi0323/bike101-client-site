@@ -1,3 +1,8 @@
 .cover-img{
     max-height: 90vh;
 }
+.card-compo{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 50px;
+}
