@@ -7,6 +7,8 @@ import Products from "../Products/Products";
 import BusinessSummary from "../BusinessSummary/BusinessSummary";
 import Review from "../Review/Review";
 import Owner from "../Owner/Owner";
+import MostSell from "../MostSell/MostSell";
+import Banner2 from "../Banner2/Banner2";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -47,6 +49,9 @@ const Home = () => {
         <BusinessSummary></BusinessSummary>
         <Review></Review>
         <Owner></Owner>
+        <Banner2></Banner2>
+        <MostSell></MostSell>
+
       </div>
     </div>
   );

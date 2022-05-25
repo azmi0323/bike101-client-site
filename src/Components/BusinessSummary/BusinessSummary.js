@@ -47,8 +47,8 @@ const BusinessSummary = () => {
             </div>
             <div className='border my-5 row d-flex justify-content-between align-items-center p-4 box-border'>
                 <div className='col-lg-7'>
-                 <h3 className='text-info fw-bold'>
-                     Have any question about us or qet a products request?
+                 <h3 className='text-warning fw-bold'>
+                     Have any question about us or get a products request?
                      </h3>
                      <h5>Don't hesitate to contact us</h5>
                 </div>
