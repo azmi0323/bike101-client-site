@@ -1,0 +1,7 @@
+.pic-short {
+  width: 70px;
+}
+.box-border {
+  border-radius: 17px;
+  box-shadow: 14px 14px 28px #62deef48, -14px -14px 228px #4ce2e21c;
+}

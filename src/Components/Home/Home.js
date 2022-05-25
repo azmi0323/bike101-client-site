@@ -1,9 +1,10 @@
-import { Carousel } from 'react-bootstrap';
-import cover from '../../img/cover.png'
-import './Home.css'
+import { Carousel } from "react-bootstrap";
+import cover from "../../img/cover.png";
+import "./Home.css";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Products from "../Products/Products";
+import BusinessSummary from "../BusinessSummary/BusinessSummary";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -15,15 +16,16 @@ const Home = () => {
       setLoading(false);
     });
   }, [loading]);
-    return (
-        <div>
-            <div className="">
+  return (
+    <div>
+      <div className="">
         <Carousel>
           <Carousel.Item>
-            <img className="d-block cover-img w-100" src={cover}  alt="First slide" />
-            <Carousel.Caption>
-              
-            </Carousel.Caption>
+            <img
+              className="d-block cover-img w-100"
+              src={cover}
+              alt="First slide"
+            />
           </Carousel.Item>
         </Carousel>
       </div>
@@ -34,8 +36,11 @@ const Home = () => {
           ))}
         </div>
       </div>
-        </div>
-    );
+      <div >
+        <BusinessSummary></BusinessSummary>
+      </div>
+    </div>
+  );
 };
 
 export default Home;
