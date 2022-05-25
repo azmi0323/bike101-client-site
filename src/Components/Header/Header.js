@@ -58,7 +58,8 @@ const Header = () => {
               >
                 Blog
               </NavLink>
-              <NavLink
+              {
+                user && <NavLink
                 className={({ isActive }) =>
                   isActive ? "link-active" : "link"
                 }
@@ -66,6 +67,7 @@ const Header = () => {
               >
                 Dashboard
               </NavLink>
+              }
             </Nav>
             <Nav>
               {user ? (
@@ -94,12 +96,12 @@ const Header = () => {
                   >
                     My Items
                   </NavLink>
-                  <button
-                    className="btn btn-danger ms-3 fw-bold"
+                  <NavLink to='/'
+                    className="link ms-3 fw-bold"
                     onClick={handleSignOut}
                   >
                     Sign Out
-                  </button>
+                  </NavLink>
                 </div>
               ) : (
                 <div>
