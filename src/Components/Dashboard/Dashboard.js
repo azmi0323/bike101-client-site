@@ -1,5 +1,6 @@
 import React from 'react';
 import { Nav, NavLink } from 'react-bootstrap';
+import { Outlet } from 'react-router-dom';
 
 
 const Dashboard = () => {
@@ -41,7 +42,7 @@ const Dashboard = () => {
 
                 </div>
                 <div className='col col-9  bg-info '>
-                    
+                    <Outlet></Outlet>
                    
                 </div>
             </div>
