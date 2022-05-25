@@ -44,7 +44,7 @@ const BusinessSummary = () => {
                     </p>
                 </div>
             </div>
-            <div className='border  row d-flex justify-content-between align-items-center p-4 box-border'>
+            <div className='border my-5 row d-flex justify-content-between align-items-center p-4 box-border'>
                 <div className='col-lg-7'>
                  <h3 className='text-info fw-bold'>
                      Have any question about us or qet a products request?
