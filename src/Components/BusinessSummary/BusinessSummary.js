@@ -4,11 +4,12 @@ import like from '../../img/like.png'
 import people from '../../img/people.png'
 import pc from '../../img/pc_mobile.png'
 import flug from '../../img/flag.png'
+import { Link } from 'react-router-dom';
 const BusinessSummary = () => {
     return (
         <div className=' my-5 '>
             <div className='container text-center'>
-            <h1 className='text-info'>MILLIONS BUSINESS TRUST US </h1>
+            <h1 className='text-info fw-bold'>MILLIONS BUSINESS TRUST US </h1>
             <h5>TRY TO UNDERSTAND USERS EXPECTATION</h5>
             <hr />
             </div>
@@ -52,8 +53,8 @@ const BusinessSummary = () => {
                      <h5>Don't hesitate to contact us</h5>
                 </div>
                 <div className='col-lg-5'>
-                    <button className='btn btn-info me-3'>Request For Quote</button>
-                    <button className='btn btn-dark'>Contact Us</button>
+                    <Link to='/blog' className='btn btn-info me-3'>Request For Quote</Link>
+                    <Link to='/contact' className='btn btn-dark'>Contact Us</Link>
                 </div>
             </div>
             </div>

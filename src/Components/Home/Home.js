@@ -5,6 +5,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Products from "../Products/Products";
 import BusinessSummary from "../BusinessSummary/BusinessSummary";
+import Review from "../Review/Review";
+import Owner from "../Owner/Owner";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -18,6 +20,7 @@ const Home = () => {
   }, [loading]);
   return (
     <div>
+      
       <div className="">
         <Carousel>
           <Carousel.Item>
@@ -29,6 +32,10 @@ const Home = () => {
           </Carousel.Item>
         </Carousel>
       </div>
+      <div className="my-5 container">
+        <h1 className="text-center fw-bold text-info">All Products</h1>
+        <hr />
+      </div>
       <div className="container d-flex justify-content-center">
         <div className="card-compo ">
           {products.map((product) => (
@@ -38,6 +45,8 @@ const Home = () => {
       </div>
       <div >
         <BusinessSummary></BusinessSummary>
+        <Review></Review>
+        <Owner></Owner>
       </div>
     </div>
   );
