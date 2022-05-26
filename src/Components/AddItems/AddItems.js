@@ -10,7 +10,7 @@ const AddItems = () => {
   const [body, setBody] = useState("");
   const [price, setPrice] = useState("");
   const [quantity, setQuantity] = useState("");
-  const [supplier, setSupplier] = useState("");
+  const [minOrderQuantity, setminOrderQuantity] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -24,7 +24,7 @@ const AddItems = () => {
       body,
       price,
       quantity,
-      supplier,
+      minOrderQuantity,
       email: user.email,
     };
 
@@ -40,7 +40,7 @@ const AddItems = () => {
     setBody("");
     setPrice("");
     setQuantity("");
-    setSupplier("");
+    setminOrderQuantity("");
   };
 
   return (
@@ -134,19 +134,19 @@ const AddItems = () => {
               htmlFor="productQuantity"
               className="mt-3 text-success fw-bold"
             >
-              Supplier Name:{" "}
+              Minimum Order Quantity:{" "}
             </label>
             <br />
             <input
               type="name"
-              name="supplier"
-              id="supplier"
+              name="minOrderQuantity"
               className="w-100 input-field"
               required
-              value={supplier}
-              onChange={(e) => setSupplier(e.target.value)}
+              value={minOrderQuantity}
+              onChange={(e) => setminOrderQuantity(e.target.value)}
             />
             <br />
+            
 
             <button
               type="submit"

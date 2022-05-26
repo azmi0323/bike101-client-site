@@ -32,17 +32,17 @@ const Details = () => {
       .catch((error) => console.dir(error));
   };
 
-  const handleDeliver = () => {
-    if (products.quantity <= 0) {
-      toast("cannot be the value 0)");
-    } else {
-      const updatedQuantity = products.quantity - 1;
-      axios
-        .put(`/product/${id}`, { updatedQuantity })
-        .then((res) => setLoading(true))
-        .catch((error) => console.log(error));
-    }
-  };
+  // const handleDeliver = () => {
+  //   if (products.quantity <= 0) {
+  //     toast("cannot be the value 0)");
+  //   } else {
+  //     const updatedQuantity = products.quantity - 1;
+  //     axios
+  //       .put(`/product/${id}`, { updatedQuantity })
+  //       .then((res) => setLoading(true))
+  //       .catch((error) => console.log(error));
+  //   }
+  // };
 
   if (loading) {
     return (
@@ -69,12 +69,12 @@ const Details = () => {
                 <h6 className="card-title">Price : {products.price}</h6>
                 <p className="card-text">Details : {products.body}</p>
                 <p className="card-text">Quantity : {products.quantity}</p>
-                <p className="card-text">Supplier : {products.supplier}</p>
-                <button className="btn btn-danger" onClick={handleDeliver}>
+                <p className="card-text">Minimum Order Quantity : {products.minOrderQuantity}</p>
+                {/* <button className="btn btn-danger" onClick={handleDeliver}>
                   Delivered
-                </button>
+                </button> */}
 
-                <form className="d-flex mx-auto mt-5">
+                {/* <form className="d-flex mx-auto mt-5">
                   <input
                     className="py-1 input-field me-2"
                     type="number"
@@ -91,10 +91,95 @@ const Details = () => {
                     type="submit"
                     value="Add items"
                   />
-                </form>
+                </form> */}
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div className=" my-5 container py-3 mx-auto form-container">
+        <div className="">
+          <form className=" mx-auto">
+            <h3 className="text-center text-success fw-bold pt-4">
+              Purchase Order
+            </h3>
+            <label className="mt-3 text-success fw-bold" htmlFor="email">
+              Product Name
+            </label>
+            <input
+              className="w-100 input-field"
+              type="text"
+              name="name"
+              disabled
+              value={products?.name}
+              id=""
+              required
+            />
+            <label className="mt-3 text-success fw-bold" htmlFor="email">
+              Email
+            </label>
+            <input
+              className="w-100 input-field"
+              type="email"
+              name="email"
+              value={products?.email}
+              disabled
+              id=""
+              required
+            />
+            <label className="mt-3 text-success fw-bold" htmlFor="email">
+              Price
+            </label>
+            <input
+              className="w-100 input-field"
+              type="number"
+              name="email"
+              value={products.price}
+              id=""
+              required
+            />
+            <label className="mt-3 text-success fw-bold" htmlFor="email">
+              Minimum Order Quantity
+            </label>
+            <input
+              className="w-100 input-field"
+              type="quantity"
+              name="quantity"
+              placeholder={products.minOrderQuantity}
+              id=""
+              required
+            />
+            <label className="mt-3 text-success fw-bold" htmlFor="email">
+              Phone Number
+            </label>
+            <input
+              className="w-100 input-field"
+              type="number"
+              name="phone"
+              
+              
+              id=""
+              required
+            />
+            <label className="mt-3 text-success fw-bold" htmlFor="address">
+              Address
+            </label>
+            <input
+              className="w-100 input-field"
+              type="text"
+              name="address"
+              
+              id=""
+              required
+            />
+            <input
+              className=" input-btn d-block mx-auto mt-3"
+              type="submit"
+              value="Confirm Order"
+            />
+            
+          </form>
         </div>
       </div>
     </div>

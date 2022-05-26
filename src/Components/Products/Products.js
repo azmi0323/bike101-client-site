@@ -4,7 +4,7 @@ import { Card, CardGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./Products.css";
 const Products = ({product, setLoading}) => {
-  const { _id, img, name, quantity, body, price,supplier } = product;
+  const { _id, img, name, quantity, body, price,minOrderQuantity } = product;
 
 
 
@@ -24,14 +24,14 @@ const Products = ({product, setLoading}) => {
             <Card.Text> <span className="fw-bold">Short Description about the product :</span> {body}</Card.Text>
           </Card.Body>
             <Card.Text className="ms-3 fw-bold">Quantity We Have : <span className="text-primary ">{quantity}</span> </Card.Text>
-            <Card.Text className="ms-3 fw-bold">Supplier : <span className="text-primary ">{supplier}</span> </Card.Text>
+            <Card.Text className="ms-3 fw-bold">Minimum Order Quantity: <span className="text-primary ">{minOrderQuantity}</span> </Card.Text>
           
           <Card.Footer>
             <Link
               to={`/details/${_id}`}
               className="btn text-white  glow-on-hover pt-2  fw-bold d-block w-100"
             >
-              Update Info
+              Buy Now
             </Link>
             
           </Card.Footer>
