@@ -1,0 +1,9 @@
+.sidebar {
+  width: 345px;
+  height: 100%;
+  background-color: antiquewhite;
+}
+.sidebar a{
+    display: block;
+    margin: 10px;
+}
