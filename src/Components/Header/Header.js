@@ -72,30 +72,7 @@ const Header = () => {
             <Nav>
               {user ? (
                 <div>
-                  <NavLink
-                    className={({ isActive }) =>
-                      isActive ? "link-active" : "link"
-                    }
-                    to="/manageItems"
-                  >
-                    Manage Items
-                  </NavLink>
-                  <NavLink
-                    className={({ isActive }) =>
-                      isActive ? "link-active" : "link"
-                    }
-                    to="/AddItems"
-                  >
-                    Add Items
-                  </NavLink>
-                  <NavLink
-                    className={({ isActive }) =>
-                      isActive ? "link-active" : "link"
-                    }
-                    to="/myItems"
-                  >
-                    My Items
-                  </NavLink>
+                  
                   <NavLink to='/'
                     className="link ms-3 fw-bold"
                     onClick={handleSignOut}

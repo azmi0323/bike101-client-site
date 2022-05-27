@@ -10,6 +10,8 @@ const Dashboard = () => {
         <NavLink to="/dashboard/manageOrder">Manage All Orders</NavLink>
         <NavLink to="/dashboard/addItems">Add A Product</NavLink>
         <NavLink to="/dashboard/manageItems">Manage Products</NavLink>
+        <NavLink to="/dashboard/manageAllUser">Manage User</NavLink>
+        <NavLink to="/dashboard/allReview">All Review</NavLink>
       </div>
       <div className="w-100">
         <Outlet />

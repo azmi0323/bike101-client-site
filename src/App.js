@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "./App.css";
 import AddItems from "./Components/AddItems/AddItems";
+import AllReview from "./Components/AllReview/AllReview";
 import Blog from "./Components/Blog/Blog";
 import Contact from "./Components/Contact/Contact";
 import Dashboard from "./Components/Dashboard/Dashboard";
@@ -11,6 +12,7 @@ import Header from "./Components/Header/Header";
 import Home from "./Components/Home/Home";
 import Inventory from "./Components/Inventory/Inventory";
 import Login from "./Components/Login/Login";
+import ManageAllUser from "./Components/manageAllUser/ManageAllUser";
 import ManageItems from "./Components/ManageItems/ManageItems";
 import ManageOrder from "./Components/ManageOrder/ManageOrder";
 import MyItems from "./Components/MyItems/MyItems";
@@ -84,6 +86,22 @@ function App() {
             element={
               <RequireAuth>
                 <ManageOrder></ManageOrder>
+              </RequireAuth>
+            }
+          ></Route>
+          <Route
+            path="manageAllUser"
+            element={
+              <RequireAuth>
+                <ManageAllUser></ManageAllUser>
+              </RequireAuth>
+            }
+          ></Route>
+          <Route
+            path="allReview"
+            element={
+              <RequireAuth>
+                <AllReview></AllReview>
               </RequireAuth>
             }
           ></Route>

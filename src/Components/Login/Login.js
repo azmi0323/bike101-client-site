@@ -38,6 +38,10 @@ const Login = () => {
       if (user) {
         axios.post("/login", { email: user.user.email }).then((res) => {
           localStorage.setItem("token", res.data.token);
+          axios.put("/user", {
+            // name: emailUser.user.displayName,
+            email: user.user.email,
+          }).then(res=>console.log(res.data))
         });
         navigate(from, { replace: true });
       }
@@ -47,6 +51,10 @@ const Login = () => {
       if (googleUser) {
         axios.post("/login", { email: googleUser.user.email }).then((res) => {
           localStorage.setItem("token", res.data.token);
+          axios.put("/user", {
+            // name: emailUser.user.displayName,
+            email: googleUser.user.email,
+          }).then(res=>console.log(res.data))
         });
         navigate(from, { replace: true });
       }

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import signup from '../../img/signup.png'
+import signup from "../../img/signup.png";
 import auth from "../../firebase.init";
 import { Spinner } from "react-bootstrap";
+import axios from "axios";
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -26,6 +27,10 @@ const SignUp = () => {
 
   useEffect(() => {
     if (emailUser) {
+      axios.put("/user", {
+        // name: emailUser.user.displayName,
+        email: emailUser.user.email,
+      }).then(res=>console.log(res.data))
       navigate(from, { replace: true });
     }
   }, [emailUser, from, navigate]);
@@ -46,9 +51,9 @@ const SignUp = () => {
   if (emailLoading) {
     return (
       <div className="spinner_">
-          <Spinner animation="border" variant="primary" />
+        <Spinner animation="border" variant="primary" />
       </div>
-  );
+    );
   }
   return (
     <div className="row container mx-auto">
