@@ -58,6 +58,14 @@ const Header = () => {
               >
                 Blog
               </NavLink>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "link-active" : "link"
+                }
+                to="/portfolio"
+              >
+                Portfolio
+              </NavLink>
               {
                 user && <NavLink
                 className={({ isActive }) =>

@@ -17,6 +17,7 @@ import ManageItems from "./Components/ManageItems/ManageItems";
 import ManageOrder from "./Components/ManageOrder/ManageOrder";
 import MyItems from "./Components/MyItems/MyItems";
 import NotFound from "./Components/NotFound/NotFound";
+import Portfolio from "./Components/Portfolio/Portfolio";
 import Profile from "./Components/Profile/Profile";
 
 import RequireAuth from "./Components/RequireAuth";
@@ -117,6 +118,7 @@ function App() {
 
         <Route path="/signUp" element={<SignUp></SignUp>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
+        <Route path="/portfolio" element={<Portfolio></Portfolio>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
