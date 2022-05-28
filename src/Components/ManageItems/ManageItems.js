@@ -58,7 +58,7 @@ const ManageItems = () => {
         </tbody>
       </Table>
       <p className="text-center">
-      <Link className="btn my-3 btn-info" to='/addItems'>Add New Items</Link>
+      <Link className="btn my-3 btn-info" to='/dashboard/addItems'>Add New Items</Link>
       </p>
     </div>
   );

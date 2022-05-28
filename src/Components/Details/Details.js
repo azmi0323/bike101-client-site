@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { toast } from 'react-toastify';
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Spinner } from "react-bootstrap";
@@ -6,6 +7,7 @@ const Details = () => {
   const { id } = useParams();
   const [products, setProducts] = useState({});
   const [loading, setLoading] = useState(true);
+  const { _id, name, price, quantity, minOrderQuantity, email } = products;
 
   useEffect(() => {
     axios.get(`/products/${id}`).then((res) => {
@@ -14,26 +16,42 @@ const Details = () => {
     });
   }, [id, loading]);
 
-
-  const confirmOrder= (event)=>{
-    event.preventDefault()
-  }
-
-  const handleReview= (event)=>{
-    event.preventDefault()
-    
-    const addReview = {
-      userName:event.target.name.value,
-      email:event.target.email.value,
-      productName:event.target.productName.value,
-      review:event.target.review.value,
+  const confirmOrder = (e) => {
+    e.preventDefault();
+    const { email, phone, userName, minOrderQuantity, address, quantity } =
+      e.target;
+    if (quantity.value > quantity || quantity.value < minOrderQuantity) {
+      toast.error(
+        `quantity value must be greater than ${minOrderQuantity} & smaller than ${quantity}`,
+        { theme: "colored" }
+      );
+    } else {
+      const newOrder = {
+        
+        productName: name,
+        email: email.value,
+        number: phone.value,
+        userName: userName.value,
+        address: address.value,
+        quantity: quantity.value,
+      };
+      axios.post('/orders',newOrder)
+      .then(res=>console.log(res.data))
     }
-    axios.post('/reviews',addReview)
-    .then(res=>console.log(res.data))
-    console.log(addReview);
-  }
+  };
 
-  
+  const handleReview = (event) => {
+    event.preventDefault();
+
+    const addReview = {
+      userName: event.target.name.value,
+      email: event.target.email.value,
+      productName: event.target.productName.value,
+      review: event.target.review.value,
+    };
+    axios.post("/reviews", addReview).then((res) => console.log(res.data));
+    console.log(addReview);
+  };
 
   if (loading) {
     return (
@@ -81,7 +99,7 @@ const Details = () => {
                   <input
                     className="w-100 input-field"
                     type="text"
-                    name="name"
+                    name="productName"
                     disabled
                     value={products?.name}
                     id=""
@@ -100,12 +118,24 @@ const Details = () => {
                     required
                   />
                   <label className="mt-3 text-success fw-bold" htmlFor="email">
+                    User Name
+                  </label>
+                  <input
+                    className="w-100 input-field"
+                    type="text"
+                    name="userName"
+                   
+                    
+                    id=""
+                    required
+                  />
+                  <label className="mt-3 text-success fw-bold" htmlFor="email">
                     Price
                   </label>
                   <input
                     className="w-100 input-field"
                     type="number"
-                    name="email"
+                    name="price"
                     value={products.price}
                     id=""
                     required
@@ -115,9 +145,9 @@ const Details = () => {
                   </label>
                   <input
                     className="w-100 input-field"
-                    type="quantity"
+                    type="number"
                     name="quantity"
-                    placeholder={products.minOrderQuantity}
+                    defaultValue={products.minOrderQuantity}
                     id=""
                     required
                   />
@@ -155,59 +185,57 @@ const Details = () => {
           </div>
           <div className="col-md-5">
             <h2>Add a Review</h2>
-          <form onSubmit={handleReview} >
-          <label className="mt-3 text-success fw-bold" htmlFor="email">
-                    User Name
-                  </label>
-                  <input
-                    className="w-100 input-field"
-                    type="text"
-                    name="name"
-                    
-                    
-                    id=""
-                    required
-                  />
-                   <label className="mt-3 text-success fw-bold" htmlFor="email">
-                    Product Name
-                  </label>
-                  <input
-                    className="w-100 input-field"
-                    type="text"
-                    name="productName"
-                    readOnly
-                    value={products?.name}
-                    id=""
-                    required
-                  />
-                   <label className="mt-3 text-success fw-bold" htmlFor="email">
-                   Email
-                  </label>
-                  <input
-                    className="w-100 input-field"
-                    type="text"
-                    name="email"
-                    readOnly
-                   value={products.email}
-                    id=""
-                    required
-                  />
-                   <label className="mt-3 text-success fw-bold" htmlFor="email">
-                   Review
-                  </label>
-                  <textarea
-                    className="w-100 input-field"
-                    rows='5'
-                    name="review"
-                    id=""
-                    required
-                  />
-                  <input
-                    className=" input-btn d-block mx-auto mt-3"
-                    type="submit"
-                    value="Add a Review"
-                  />
-          </form>
+            <form onSubmit={handleReview}>
+              <label className="mt-3 text-success fw-bold" htmlFor="email">
+                User Name
+              </label>
+              <input
+                className="w-100 input-field"
+                type="text"
+                name="name"
+                id=""
+                required
+              />
+              <label className="mt-3 text-success fw-bold" htmlFor="email">
+                Product Name
+              </label>
+              <input
+                className="w-100 input-field"
+                type="text"
+                name="productName"
+                readOnly
+                value={products?.name}
+                id=""
+                required
+              />
+              <label className="mt-3 text-success fw-bold" htmlFor="email">
+                Email
+              </label>
+              <input
+                className="w-100 input-field"
+                type="text"
+                name="email"
+                readOnly
+                value={products.email}
+                id=""
+                required
+              />
+              <label className="mt-3 text-success fw-bold" htmlFor="email">
+                Review
+              </label>
+              <textarea
+                className="w-100 input-field"
+                rows="5"
+                name="review"
+                id=""
+                required
+              />
+              <input
+                className=" input-btn d-block mx-auto mt-3"
+                type="submit"
+                value="Add a Review"
+              />
+            </form>
           </div>
         </div>
       </div>

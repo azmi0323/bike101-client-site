@@ -4,7 +4,7 @@ import './Dashboard.css'
 const Dashboard = () => {
   return (
     <section className="d-flex align-items-stretch h-100">
-      <div className="sidebar">
+      <div className="sidebar2">
         <NavLink to="/dashboard/">My Order</NavLink>
         <NavLink to="/dashboard/profile">My Profile</NavLink>
         <NavLink to="/dashboard/manageOrder">Manage All Orders</NavLink>
@@ -13,6 +13,7 @@ const Dashboard = () => {
         <NavLink to="/dashboard/manageAllUser">Manage User</NavLink>
         <NavLink to="/dashboard/allReview">All Review</NavLink>
       </div>
+      
       <div className="w-100">
         <Outlet />
       </div>

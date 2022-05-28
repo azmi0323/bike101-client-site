@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
 import "./App.css";
 import AddItems from "./Components/AddItems/AddItems";
 import AllReview from "./Components/AllReview/AllReview";
@@ -22,6 +21,8 @@ import Profile from "./Components/Profile/Profile";
 
 import RequireAuth from "./Components/RequireAuth";
 import SignUp from "./Components/SignUp/SignUp";
+import { ToastContainer } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (

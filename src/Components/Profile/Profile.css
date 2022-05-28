@@ -1,0 +1,28 @@
+.wrapper {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .wrapper .left {
+    width: 35%;
+    background: linear-gradient(to right, #01a9ac, #01dbdf);
+    padding: 30px 25px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    text-align: center;
+    color: #fff;
+    width: 400px;
+    margin: 20px;
+    box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
+  }
+  
+  .wrapper .left img {
+    border-radius: 5px;
+    max-width: 200px;
+    display: block;
+    margin: auto;
+    margin-bottom: 10px;
+  }
