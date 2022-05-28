@@ -1,9 +1,10 @@
 import React from 'react';
+import Review from '../Review/Review';
 
 const AllReview = () => {
     return (
         <div>
-            all review
+           <Review></Review>
         </div>
     );
 };

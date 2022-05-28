@@ -14,6 +14,27 @@ const Details = () => {
     });
   }, [id, loading]);
 
+
+  const confirmOrder= (event)=>{
+    event.preventDefault()
+  }
+
+  const handleReview= (event)=>{
+    event.preventDefault()
+    
+    const addReview = {
+      userName:event.target.name.value,
+      email:event.target.email.value,
+      productName:event.target.productName.value,
+      review:event.target.review.value,
+    }
+    axios.post('/reviews',addReview)
+    .then(res=>console.log(res.data))
+    console.log(addReview);
+  }
+
+  
+
   if (loading) {
     return (
       <div className="spinner_">
@@ -50,7 +71,7 @@ const Details = () => {
             </div>
             <div className=" my-5 container py-3 mx-auto form-container">
               <div className="">
-                <form className=" mx-auto">
+                <form className=" mx-auto" onSubmit={confirmOrder}>
                   <h3 className="text-center text-success fw-bold pt-4">
                     Purchase Order
                   </h3>
@@ -132,7 +153,62 @@ const Details = () => {
               </div>
             </div>
           </div>
-          <div className="col-md-5">review</div>
+          <div className="col-md-5">
+            <h2>Add a Review</h2>
+          <form onSubmit={handleReview} >
+          <label className="mt-3 text-success fw-bold" htmlFor="email">
+                    User Name
+                  </label>
+                  <input
+                    className="w-100 input-field"
+                    type="text"
+                    name="name"
+                    
+                    
+                    id=""
+                    required
+                  />
+                   <label className="mt-3 text-success fw-bold" htmlFor="email">
+                    Product Name
+                  </label>
+                  <input
+                    className="w-100 input-field"
+                    type="text"
+                    name="productName"
+                    readOnly
+                    value={products?.name}
+                    id=""
+                    required
+                  />
+                   <label className="mt-3 text-success fw-bold" htmlFor="email">
+                   Email
+                  </label>
+                  <input
+                    className="w-100 input-field"
+                    type="text"
+                    name="email"
+                    readOnly
+                   value={products.email}
+                    id=""
+                    required
+                  />
+                   <label className="mt-3 text-success fw-bold" htmlFor="email">
+                   Review
+                  </label>
+                  <textarea
+                    className="w-100 input-field"
+                    rows='5'
+                    name="review"
+                    id=""
+                    required
+                  />
+                  <input
+                    className=" input-btn d-block mx-auto mt-3"
+                    type="submit"
+                    value="Add a Review"
+                  />
+          </form>
+          </div>
         </div>
       </div>
     </div>
