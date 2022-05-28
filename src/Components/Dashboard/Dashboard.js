@@ -1,7 +1,24 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { Outlet,NavLink } from "react-router-dom";
 import './Dashboard.css'
 const Dashboard = () => {
+  const [user, setUser] = useState({})
+    useEffect(() => {
+        const token = localStorage.getItem('token')
+        if (token) {
+            axios.get('/jwt-decoded', {
+                headers: {
+                    Authorization: token
+
+                }
+            })
+                .then(res => {
+                    setUser(res.data)
+                })
+        }
+    }, [])
+    console.log(user);
   return (
     <section className="d-flex align-items-stretch h-100">
       <div className="sidebar2">

@@ -3,7 +3,7 @@ import './ManageItems.css'
 import React, { useEffect, useState } from "react";
 import { Spinner, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
-
+import dlt from '../../img/dlt.png'
 const ManageItems = () => {
 
       
@@ -36,7 +36,6 @@ const ManageItems = () => {
           <tr>
             <th>Name</th>
             <th>Quantity</th>
-            <th>Supplier Name</th>
             <th>Remove</th>
           </tr>
         </thead>
@@ -45,12 +44,11 @@ const ManageItems = () => {
             <tr key={product._id}>
               <td>{product.name}</td>
               <td>{product.quantity}</td>
-              <td>{product.supplier}</td>
               <td>
                   <button 
                   onClick={()=>handleRemove(product._id)}
                   className="btn-dlt ">
-                    <img  src='' alt="" />
+                    <img  src={dlt} alt="" />
                   </button>
               </td>
             </tr>

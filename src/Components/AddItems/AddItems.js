@@ -3,6 +3,8 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
+import addproduct from '../../img/login.png'
+
 const AddItems = () => {
   const [user] = useAuthState(auth);
   const [name, setName] = useState("");
@@ -47,7 +49,7 @@ const AddItems = () => {
     <div className=" container mx-auto">
       <div className="row">
         <div className="col-lg-8 justify-content-center align-items-center d-flex">
-          <img className="img-fluid " src='' alt="" />
+          <img className="img-fluid " src={addproduct} alt="" />
         </div>
         <div className="col-lg-4 my-5 px-5 py-3 form-container">
           <form onSubmit={handleSubmit} className=" mx-auto">
