@@ -7,8 +7,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter } from "react-router-dom";
 import axios from "axios";
 
-axios.defaults.baseURL = "http://localhost:5000";
-// axios.defaults.baseURL = "https://project-nightmore.herokuapp.com";
+// axios.defaults.baseURL = "http://localhost:5000";
+axios.defaults.baseURL = "https://project-nightmore.herokuapp.com";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
