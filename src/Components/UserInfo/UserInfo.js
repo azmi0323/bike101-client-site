@@ -1,28 +1,34 @@
+import axios from "axios";
 import React from "react";
-import { Table } from "react-bootstrap";
+const UserInfo = ({ user,setLoading }) => {
+  const makeAdmin = () => {
+    axios.put(`/user/${user._id}`).then((res) => {
+      if(res.data){
+        setLoading(true);
+      }
+    });
+  };
+  const deleteUser = () => {
+    axios.delete(`/user/${user._id}`).then((res) => {
+      if(res.data){
+        setLoading(true);
+      }
+    });
+  };
 
-const UserInfo = ({user}) => {
   return (
-    <div className="container my-4">
-      <Table bordered hover size="lg">
-        <thead>
-          <tr>
-            <th>Email</th>
-            <th>Last Name</th>
-            <th>Username</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{user.email}</td>
-            <td>Otto</td>
-            <td>
-                <button>dlt</button>
-            </td>
-          </tr>
-        </tbody>
-      </Table>
-    </div>
+    <tbody>
+      <tr>
+        <td>{user.email}</td>
+        <td>{user.role ? user.role : "user"}</td>
+        <td>
+          <button disabled={user.role==='admin'} onClick={makeAdmin} className="btn btn-primary">
+            Make Admit
+          </button>
+          <button onClick={deleteUser} className="btn btn-danger">Delete</button>
+        </td>
+      </tr>
+    </tbody>
   );
 };
 

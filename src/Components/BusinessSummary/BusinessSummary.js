@@ -15,7 +15,7 @@ const BusinessSummary = () => {
             </div>
             <div className='container'>
             <div className='row'>
-                <div className='col-6 col-lg-3'>
+                <div className='col-6 col-lg-3 text-center'>
                     <img src={flug} className='pic-short' alt="" />
                     <h2 className='fw-bold'>72</h2>
                     <p className="text-info">
@@ -23,21 +23,21 @@ const BusinessSummary = () => {
                     </p>
                 </div>
                 
-                <div className='col-6 col-lg-3 mt-3'>
+                <div className='col-6 col-lg-3 mt-3 text-center'>
                     <img src={pc} className='pic-short' alt="" />
                     <h2 className='fw-bold'>535+</h2>
                     <p className="text-info">
                     Complete Project
                     </p>
                 </div>
-                <div className='col-6 col-lg-3'>
+                <div className='col-6 col-lg-3 text-center'>
                     <img src={people} className='pic-short' alt="" />
                     <h2 className='fw-bold'>273+</h2>
                     <p className="text-info">
                     Happy Clients
                     </p>
                 </div>
-                <div className='col-6 col-lg-3'>
+                <div className='col-6 col-lg-3 text-center'>
                     <img src={like} className='pic-short' alt="" />
                     <h2 className='fw-bold'>432+</h2>
                     <p className="text-info">
