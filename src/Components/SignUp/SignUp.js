@@ -27,11 +27,15 @@ const SignUp = () => {
 
   useEffect(() => {
     if (emailUser) {
-      axios.put("/user", {
-        // name: emailUser.user.displayName,
-        email: emailUser.user.email,
-      }).then(res=>console.log(res.data))
+      axios.post("/login", { email: emailUser.user.email }).then((res) => {
+        localStorage.setItem("token", res.data.token);
+        axios.put("/user", {
+          // name: emailUser.user.displayName,
+          email: emailUser.user.email,
+        }).then(res=>console.log(res.data))
+      });
       navigate(from, { replace: true });
+      
     }
   }, [emailUser, from, navigate]);
   useEffect(() => {

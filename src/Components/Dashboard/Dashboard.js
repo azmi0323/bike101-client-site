@@ -7,7 +7,7 @@ const Dashboard = () => {
     useEffect(() => {
         const token = localStorage.getItem('token')
         if (token) {
-            axios.get('/jwt-decoded', {
+            axios.get('/user', {
                 headers: {
                     Authorization: token
 
@@ -19,16 +19,25 @@ const Dashboard = () => {
         }
     }, [])
     console.log(user);
+    
   return (
     <section className="d-flex align-items-stretch h-100">
       <div className="sidebar2">
-        <NavLink to="/dashboard/">My Order</NavLink>
+      <NavLink to="/dashboard/">My Order</NavLink>
         <NavLink to="/dashboard/profile">My Profile</NavLink>
-        <NavLink to="/dashboard/manageOrder">Manage All Orders</NavLink>
+        {
+          user.role==='admin'?(<>
+          <NavLink to="/dashboard/manageOrder">Manage All Orders</NavLink>
         <NavLink to="/dashboard/addItems">Add A Product</NavLink>
         <NavLink to="/dashboard/manageItems">Manage Products</NavLink>
         <NavLink to="/dashboard/manageAllUser">Manage User</NavLink>
         <NavLink to="/dashboard/allReview">All Review</NavLink>
+          </>):(<>
+          
+          </>)
+        }
+        
+        
       </div>
       
       <div className="w-100">

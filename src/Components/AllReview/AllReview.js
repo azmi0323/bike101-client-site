@@ -19,10 +19,10 @@ const AllReview = () => {
         </h1>
         <hr className="mb-5"></hr>
       </div>
-      <CardGroup>
+      <CardGroup className="gap-4">
         {
           review.map(item=>(
-            <Card key={item._id}>
+            <Card key={item._id} style={{minWidth:'350px'}}>
           <Card.Body>
             <Card.Title>{item.userName}</Card.Title>
             <Card.Text>

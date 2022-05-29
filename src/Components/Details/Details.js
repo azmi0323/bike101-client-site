@@ -3,7 +3,10 @@ import { toast } from 'react-toastify';
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Spinner } from "react-bootstrap";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
 const Details = () => {
+  const [user] = useAuthState(auth);
   const { id } = useParams();
   const [products, setProducts] = useState({});
   const [loading, setLoading] = useState(true);
@@ -20,9 +23,9 @@ const Details = () => {
     e.preventDefault();
     const { email, phone, userName, minOrderQuantity, address, quantity } =
       e.target;
-    if (quantity.value > quantity || quantity.value < minOrderQuantity) {
+    if (parseInt(quantity.value) > parseInt(quantity) || parseInt(quantity.value) < parseInt(minOrderQuantity)) {
       toast.error(
-        `quantity value must be greater than ${minOrderQuantity} & smaller than ${quantity}`,
+        `quantity value must be greater than ${parseInt(minOrderQuantity)} & smaller than ${parseInt(quantity)}`,
         { theme: "colored" }
       );
     } else {
@@ -112,7 +115,7 @@ const Details = () => {
                     className="w-100 input-field"
                     type="email"
                     name="email"
-                    value={products?.email}
+                    value={user?.email}
                     disabled
                     id=""
                     required
