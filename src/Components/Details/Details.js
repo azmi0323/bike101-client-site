@@ -10,7 +10,7 @@ const Details = () => {
   const { id } = useParams();
   const [products, setProducts] = useState({});
   const [loading, setLoading] = useState(true);
-  const { _id, name, price, quantity, minOrderQuantity, email } = products;
+  const { _id, name, price, quantity:maxQuantity, minOrderQuantity, email } = products;
 
   useEffect(() => {
     axios.get(`/products/${id}`).then((res) => {
@@ -21,11 +21,12 @@ const Details = () => {
 
   const confirmOrder = (e) => {
     e.preventDefault();
-    const { email, phone, userName, minOrderQuantity, address, quantity } =
+    const { email, phone, userName, address, quantity } =
       e.target;
-    if (parseInt(quantity.value) > parseInt(quantity) || parseInt(quantity.value) < parseInt(minOrderQuantity)) {
+      
+    if (parseInt(quantity.value) > parseInt(maxQuantity) || parseInt(quantity.value) < parseInt(minOrderQuantity)) {
       toast.error(
-        `quantity value must be greater than ${parseInt(minOrderQuantity)} & smaller than ${parseInt(quantity)}`,
+        `quantity value must be greater than ${parseInt(minOrderQuantity)} & smaller than ${parseInt(maxQuantity)}`,
         { theme: "colored" }
       );
     } else {
@@ -39,7 +40,11 @@ const Details = () => {
         quantity: quantity.value,
       };
       axios.post('/orders',newOrder)
-      .then(res=>console.log(res.data))
+      .then(res=>toast.success(
+        `Order confirm`,
+        { theme: "colored" }
+      ))
+      
     }
   };
 
@@ -52,7 +57,10 @@ const Details = () => {
       productName: event.target.productName.value,
       review: event.target.review.value,
     };
-    axios.post("/reviews", addReview).then((res) => console.log(res.data));
+    axios.post("/reviews", addReview).then((res) => toast.success(
+      `New Review Added`,
+      { theme: "colored" }
+    ));
     console.log(addReview);
   };
 
